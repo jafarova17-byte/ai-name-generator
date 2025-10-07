@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free AI Name Generator – Brand, Business, App, Pet | NameMuse.ai</title>
+  <meta name="description" content="Instantly generate catchy, brandable names for your business, app, product, or pet. Pick style & length, add keywords, and copy with one click." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <style>
+    body { background:#ffffff; color:#1f2937; font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial; margin:0; }
+    h1{ text-align:center; padding:20px 0; }
+    .wrap{max-width:880px;margin:0 auto;padding:0 18px;}
+    .card{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:16px;margin:20px auto;max-width:720px;}
+    label{font-weight:600;margin:6px 0 4px;display:block;}
+    input,select{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px;margin-bottom:10px;}
+    button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;font-weight:700;background:#1d4ed8;color:#fff;}
+    button:hover{background:#1e40af;}
+    .results{margin:18px auto;max-width:720px;}
+    .name{display:flex;justify-content:space-between;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:10px;margin-bottom:10px;}
+    footer{text-align:center;color:#6b7280;margin:28px 0;}
+  </style>
+</head>
+<body>
+  <h1>AI Name Generator</h1>
+  <main class="wrap">
+    <section class="card">
+      <label for="keywords">Keywords (optional)</label>
+      <input id="keywords" placeholder="e.g., faith, cozy, craft" />
+      <label for="style">Style</label>
+      <select id="style">
+        <option value="brandable">Brandable</option>
+        <option value="descriptive">Descriptive</option>
+        <option value="two-word">Two-word</option>
+      </select>
+      <button onclick="generate()">Generate Names</button>
+    </section>
+    <section id="results" class="results"></section>
+
+    <section class="card">
+      <p><strong>Affiliate Tools:</strong></p>
+      <ul>
+        <li><a href="https://namecheap.pxf.io/YOUR_AFFILIATE_ID" target="_blank">Check domains on Namecheap</a></li>
+        <li><a href="https://partner.canva.com/YOUR_AFFILIATE_ID" target="_blank">Design a logo on Canva</a></li>
+        <li><a href="https://www.shopify.com/?ref=YOUR_AFFILIATE_ID" target="_blank">Launch your store on Shopify</a></li>
+      </ul>
+      <p style="font-size:12px;color:#6b7280;">Affiliate disclosure: We may earn a commission if you sign up through these links.</p>
+    </section>
+  </main>
+
+  <footer>© <span id="y"></span> NameMuse.ai</footer>
+  <script>
+    const results=document.getElementById('results');
+    const words=['nova','astra','terra','pura','vita','mira','halo','lyra','nexa','zeno','verto'];
+    function generate(){
+      results.innerHTML='';
+      for(let i=0;i<10;i++){const w=words[Math.floor(Math.random()*words.length)];const name=w.charAt(0).toUpperCase()+w.slice(1)+(Math.random()<.5?'ly':'');
+      const div=document.createElement('div');div.className='name';div.innerHTML=`<b>${name}</b><button onclick='copyName("${name}")'>Copy</button>`;results.appendChild(div);}}
+    function copyName(t){navigator.clipboard.writeText(t);alert('Copied: '+t);}
+    document.getElementById('y').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
